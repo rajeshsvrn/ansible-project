@@ -2,6 +2,11 @@
 - name: Configure nginx web server
   hosts: webserver
   tasks: 
+  - name: install EPEL repo
+    become: yes
+    yum: 
+      name: epel-release 
+      state: present
   - name: install ngnix server
     yum: 
       name: nginx
